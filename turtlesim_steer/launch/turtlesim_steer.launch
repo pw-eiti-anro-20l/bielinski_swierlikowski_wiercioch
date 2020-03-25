@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+
+  <node pkg="turtlesim_steer" name="key" type="move.py"/>
+
+</launch>
+
