@@ -1,0 +1,17 @@
+[
+	{
+	"name": "base_to_link1",
+	"backward": -1.57079632679,
+	"forward": 1.57079632679
+	},
+	{
+	"name": "link1_to_link2",
+	"backward": -1.57079632679,
+	"forward": 1.57079632679
+	},
+	{
+	"name": "link2_to_link3",
+	"backward": -1.57079632679,
+	"forward": 0
+	}
+]
