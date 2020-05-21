@@ -1,0 +1,19 @@
+<launch>
+  
+  <arg name="model" default="robot_movable.urdf"/>
+  <arg name="gui" default="true" />
+  
+  
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find lab5)/urdf/$(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+  
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <!-- <node name="NONKDL_DKIN" pkg="lab5" type="nonkdl.py" />
+  <node name="KDL_DKIN" pkg="lab5" type="kdl.py"/> -->
+  <!-- <node name="initial" pkg="lab5" type="initial.py" /> -->
+  <node name="oint_srv" pkg="lab5" type="oint.py" />
+  <node name="IKIN" pkg="lab5" type="ikin.py" />
+  <!-- <node name="PathNodeJint" pkg="lab5" type="drawTrajJint.py" /> -->
+  <node name="PathNodeOint" pkg="lab5" type="drawTrajOint.py" />
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+
+ 
+  <arg name="rvizconfig" default="$(find lab5)/rviz/both_config.rviz" />
+  
+  <param name="dlugosc1" type="double" value="0.7"/>
+  <param name="dlugosc2" type="double" value="1"/>
+
+  <node name="converter" pkg="lab5" type="converter.py"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

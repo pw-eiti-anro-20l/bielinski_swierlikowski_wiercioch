@@ -1,0 +1,20 @@
+<launch>
+
+  <arg name="model" default="robot.urdf"/>
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find lab5)/rviz/both_config.rviz" />
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find lab5)/urdf/$(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+  
+  <param name="dlugosc1" type="double" value="0.5"/>
+  <param name="dlugosc2" type="double" value="0.3"/>
+
+  <node name="converter" pkg="lab5" type="converter.py"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="NONKDL_DKIN" pkg="lab5" type="nonkdl.py"/>
+  <node name="KDL_DKIN" pkg="lab5" type="kdl.py"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>
